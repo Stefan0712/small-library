@@ -90,7 +90,7 @@ function addBookToLibrary(){
     stat.setAttribute("id","status");
     stat.setAttribute("onclick",`statusChange(${index})`);
     if(book.isRead=="true"){
-        stat.innerHTML = "Read";
+        stat.innerText = "Read";
         stat.style.cssText = "background-color: rgb(149, 233, 124)"
     }
     else if(book.isRead=="false"){
@@ -141,9 +141,12 @@ function statusChange(index){
   
     if(document.getElementById("status").backgroundColor == "rgb(149, 233, 124)")  {
         document.getElementById("status").style.cssText = "background-color: red";
+        document.getElementById("status").innerHTML = "Not read"
     }  
     if(document.getElementById("status").backgroundColor == "red"){
         document.getElementById("status").style.cssText = "background-color: rgb(149, 233, 124)"
+        document.getElementById("status").innerHTML = "Read"
+
     }
            
 }
