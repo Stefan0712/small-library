@@ -19,9 +19,11 @@
                 <input type="text" id="title" placeholder="Title">
                 <input type="text" id="author" placeholder="Author">
                 <input type="number" id="pages" placeholder="Pages">
-                <div>
-                    <label>Have you read it?</label>
-                    <input type="checkbox" name="read" id="statusCh">
+                <div><h2>Status</h2>
+                    <select id="isRead">
+                        <option value="true">Read</option>
+                        <option value="false">Not read</option>
+                    </select>
                 </div>
                 <button id="submitBook" value="isRead" type="button" onclick="addBookToLibrary()">Submit</button>
             </form>

@@ -103,3 +103,17 @@
     width: 100vw;
     flex-wrap: wrap;
 }
+button:hover{
+    border: 1px solid black;
+}
+select{
+    border: none;
+    height: 40px;
+    width: 80px;
+    border-radius: 25px;
+    background-color: white;
+    margin-left: 20px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}

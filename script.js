@@ -1,6 +1,6 @@
 let myLibrary =[];
 
-function Book(title, author, pages, isRead, index){
+function Book(title, author, pages,isRead, index){
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -19,7 +19,7 @@ const closeBtn = document.getElementById("closeBtn");
 const titleInput = document.getElementById("title");
 const authorInput = document.getElementById("author");
 const pagesInput = document.getElementById("pages");
-const statusInput = document.getElementById("statusCh");
+const statusInput = document.getElementById("isRead");
 const container = document.querySelector(".content");
 
 
@@ -46,9 +46,10 @@ authorInput.onblur = function(){
 pagesInput.onblur = function(){
     bookPages = this.value
 }
-statusInput.onclick = function(){
-    bookStatus = this.value
+statusInput.onblur = function(){
+    bookStatus = this.value;
 }
+
 
 
 
@@ -58,7 +59,6 @@ statusInput.onclick = function(){
 let index = 0;
 
 function addBookToLibrary(){
-    console.log("This function is initialised")
     var book = Object.create(Book);
     book.title = bookTitle;
     book.author = bookAuthor;
@@ -88,19 +88,23 @@ function addBookToLibrary(){
     const stat = document.createElement('button');
     stat.classList.add("status");
     stat.setAttribute("id","status");
-    if(book.isRead==true){
+    stat.setAttribute("onclick",`statusChange(${index})`);
+    if(book.isRead=="true"){
         stat.innerHTML = "Read";
+        stat.style.cssText = "background-color: rgb(149, 233, 124)"
     }
-    else {
+    else if(book.isRead=="false"){
         stat.innerHTML = "Not read";
         stat.style.cssText = "background-color: red";
     }
+    
 
     const rmv = document.createElement('button');
     rmv.classList.add("remove");
     rmv.setAttribute("id","remove");
     rmv.setAttribute("onclick",`remove(${index})`);
     rmv.innerHTML="Remove";
+    
 
     container.appendChild(card);
     card.appendChild(titl);
@@ -129,4 +133,17 @@ function remove(indx){
 
     var card = document.getElementById(indx)
     container.removeChild(card);
+}
+
+
+
+function statusChange(index){
+  
+    if(document.getElementById("status").backgroundColor == "rgb(149, 233, 124)")  {
+        document.getElementById("status").style.cssText = "background-color: red";
+    }  
+    if(document.getElementById("status").backgroundColor == "red"){
+        document.getElementById("status").style.cssText = "background-color: rgb(149, 233, 124)"
+    }
+           
 }
