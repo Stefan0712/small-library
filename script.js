@@ -11,7 +11,6 @@ function Book(title, author, pages,isRead, index){
 
 
 const submitBtn = document.getElementById("submitBook");
-const statusBtn = document.getElementById("status");
 const removeBtn = document.getElementById("remove");
 const addBtn = document.getElementById("addBtn");
 const modal = document.getElementById("modal");
@@ -32,10 +31,10 @@ closeBtn.onclick = function(){
 
 
 
-let bookTitle;
-let bookAuthor;
-let bookPages;
-let bookStatus;
+let bookTitle = 'Unkown title';
+let bookAuthor = 'Unknown author';
+let bookPages = 0;
+let bookStatus = 'Unknow status';
 
 titleInput.onblur = function(){
     bookTitle = this.value
@@ -87,21 +86,26 @@ function addBookToLibrary(){
 
     const stat = document.createElement('button');
     stat.classList.add("status");
+    stat.setAttribute("type","button");
+
     stat.setAttribute("id","status");
     stat.setAttribute("onclick",`statusChange(${index})`);
-    if(book.isRead=="true"){
+    if(statusInput.value=="false"){
+    stat.innerHTML = "Not read";
+    stat.style.cssText = "background-color: red";
+    } else if(statusInput.value=="true"){
+       
+        stat.style.cssText = "background-color: rgb(149, 233, 124)";
         stat.innerText = "Read";
-        stat.style.cssText = "background-color: rgb(149, 233, 124)"
     }
-    else if(book.isRead=="false"){
-        stat.innerHTML = "Not read";
-        stat.style.cssText = "background-color: red";
-    }
+
+    
     
 
     const rmv = document.createElement('button');
     rmv.classList.add("remove");
     rmv.setAttribute("id","remove");
+    rmv.setAttribute("type","button");
     rmv.setAttribute("onclick",`remove(${index})`);
     rmv.innerHTML="Remove";
     
@@ -113,15 +117,22 @@ function addBookToLibrary(){
     card.appendChild(stat);
     card.appendChild(rmv);
 
-
+   
 
     index++;
     modal.style.cssText = "display: none";
 
-
+        
 
 
 }
+function statusChange(index){
+    const parentDiv = document.getElementById(index);
+    const statusBtn = parentDiv.querySelector("#status");
+    statusBtn.style.cssText= " background-color: rgb(149, 233, 124)";
+    statusBtn.innerHTML = "Read";
+}
+
 
 function remove(indx){
     for(let i=0;i<myLibrary.length;i++){
@@ -137,16 +148,6 @@ function remove(indx){
 
 
 
-function statusChange(index){
-  
-    if(document.getElementById("status").backgroundColor == "rgb(149, 233, 124)")  {
-        document.getElementById("status").style.cssText = "background-color: red";
-        document.getElementById("status").innerHTML = "Not read"
-    }  
-    if(document.getElementById("status").backgroundColor == "red"){
-        document.getElementById("status").style.cssText = "background-color: rgb(149, 233, 124)"
-        document.getElementById("status").innerHTML = "Read"
 
-    }
-           
-}
+
+
