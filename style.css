@@ -4,6 +4,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
 }
 .add-book{
     height: 50px;
@@ -27,6 +30,8 @@
     border: 1px lightgray solid;
     padding: 20px;
     text-align: center;
+    margin: 20px;
+    
 }
 .card button{
     height: 50px;

@@ -24,11 +24,12 @@ const container = document.querySelector(".content");
 
 
 addBtn.onclick = function(){
-    modal.style.cssText = "display: block"
+    modal.style.cssText = "display: block";
 }
 closeBtn.onclick = function(){
-    modal.style.cssText = "display: none"
+    modal.style.cssText = "display: none";
 }
+
 
 
 let bookTitle;
@@ -48,6 +49,7 @@ pagesInput.onblur = function(){
 statusInput.onclick = function(){
     bookStatus = this.value
 }
+
 
 
 
@@ -110,7 +112,7 @@ function addBookToLibrary(){
 
 
     index++;
-    
+    modal.style.cssText = "display: none";
 
 
 
