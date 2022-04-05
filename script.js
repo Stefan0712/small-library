@@ -1,10 +1,11 @@
 let myLibrary =[];
 
-function Book(title, author, pages, isRead){
+function Book(title, author, pages, isRead, index){
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.isRead = isRead;
+    this.index = index;
 }
 
 
@@ -61,13 +62,14 @@ function addBookToLibrary(){
     book.author = bookAuthor;
     book.pages = bookPages;
     book.isRead = bookStatus;
+    book.index = index;
 
     myLibrary.push(book);
 
     
     const card = document.createElement('div');
     card.classList.add("card");
-    card.setAttribute("data-attribute",index);
+    card.setAttribute("id",index);
     
     const titl = document.createElement('div');
     titl.classList.add("title");
@@ -95,7 +97,8 @@ function addBookToLibrary(){
     const rmv = document.createElement('button');
     rmv.classList.add("remove");
     rmv.setAttribute("id","remove");
-    rmv.innerHTML="Remove"
+    rmv.setAttribute("onclick",`remove(${index})`);
+    rmv.innerHTML="Remove";
 
     container.appendChild(card);
     card.appendChild(titl);
@@ -112,4 +115,16 @@ function addBookToLibrary(){
 
 
 
+}
+
+function remove(indx){
+    for(let i=0;i<myLibrary.length;i++){
+        if(myLibrary[i].index==indx){
+            myLibrary.splice(indx,1);
+        }
+    }
+    
+
+    var card = document.getElementById(indx)
+    container.removeChild(card);
 }
