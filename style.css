@@ -1,0 +1,100 @@
+.header {
+    box-shadow: 3px 3px 3px lightgray;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add-book{
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(74, 127, 240);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.card{
+    height: 300px;
+    width: 200px;
+    box-shadow: 3px 3px 3px lightgray;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: repeat(4,1fr);
+    justify-content: center;
+    align-items: center;
+    border: 1px lightgray solid;
+    padding: 20px;
+    text-align: center;
+}
+.card button{
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+.status{
+    background-color: rgb(113, 228, 79);
+}
+.content{
+    padding: 100px;
+}
+.addBook{
+    border-radius: 10px;
+    height: 550px;
+    width: 400px;
+    background-color: rgb(231, 226, 226);
+    box-shadow: 3px 3px 3px lightgray;
+    margin: 0px;
+    position: absolute;
+    left: 37%;
+    top: 20%;
+    display: none;
+}
+.addBook form{
+    display: grid;
+    grid-template-rows: repeat(6,1fr);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 500px;
+    width: 400px;
+}
+.addBook button{
+    height: 50px;
+    width: 350px;
+    background-color: rgb(149, 233, 124);
+    border: none;
+    border-radius: 10px;
+
+}
+.addBook input{
+    border: none;
+    border-radius: 10px;
+    width: 350px;
+    height: 50px;
+}
+.addBook div input{
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    margin-left: 20px;
+}
+.addBook div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+#closeBtn{
+    margin-left: 90%;
+    margin-top: 10px;
+}
+.content{
+    display: flex;
+    width: 100vw;
+    flex-wrap: wrap;
+}
